@@ -1,9 +1,8 @@
 # ReGDS: Logic Gate Extraction routine
---------------
 
 The Logic Gate Extraction (LGE) is a custom C++ routine, part of the layout reverse engineering framework *ReGDS*, for digital circuits, that converts layout netlist (SPICE) to HDL netlist (Verilog) in the presence of the logic gate definitions from the standard cell library (SPICE).
 The digital connectivity index (DCI) coding scheme is employed to represent connectivity between transistors and [subgraph isomorphism algorithm](https://ieeexplore.ieee.org/abstract/document/1323804) is employed to identify logic gates in the layout netlist (sea of transistors).
-For more details, please refer to the ['paper'](###Citation).
+For more details, please refer to the ['paper'](### Citation).
 
 The SPICE netlist is parsed and the connectivity information is stored as a hypergraph.
 Tie off in the layout netlist is handled by renaming to avoid mismatch during graph-based pattern matching to identify logic gates.
@@ -12,9 +11,7 @@ LGE has two modes of operation:
     - SPICE netlist with logic gate definitions from the technology library is read and library digital connectivity graphs (DCGs) are constructed.
 * Logic Gate Identification:
     - The layout SPICE netlist is read and logic gates are identified based on the existing library DCGs.
-As LGE reads in only one SPICE netlist at a time, a [rebuild](###Rebuild) is required after *Library Build* mode to incorporate the constructed library DCGs in *Logic Gate Identification*.
-
---------------
+As LGE reads in only one SPICE netlist at a time, a [rebuild](### Rebuild) is required after *Library Build* mode to incorporate the constructed library DCGs in *Logic Gate Identification*.
 
 ## Acknowlegement
 
@@ -45,9 +42,9 @@ To clone the repository,
 git clone https://github.com/
 ```
 
-##Build Instructions
+## Build Instructions
 
-###Parser build
+### Parser build
 
 The SPICE netlist parser is found within *<root>/src/parser* directory and needs to built to generate static library **libbookshelfparser.a**.
 Please refer to parser [README]() for information on files to make any changes.
@@ -77,7 +74,7 @@ To clean, run make clean in the cpp directory.
 make clean
 ```
 
-###Rebuild
+### Rebuild
 
 A rebuild is required after running LGE in *Library Build* mode and before *Logic Gate Identification*.
 At the *<root>/build* directory, do
@@ -101,7 +98,7 @@ options:
   -h, --help    Lists available options
 ```
 
-###Library Build mode
+### Library Build mode
 
 To construct library DCGs, run LGE in library mode with *lib* flag set to **1**, at *<root>/bin* directory.
 
@@ -109,9 +106,9 @@ To construct library DCGs, run LGE in library mode with *lib* flag set to **1**,
 ./LGE --lib=1 --sp=<path_to_library_netlist>.sp
 ```
 
-After construction of library DCGs, do a [rebuild](###Rebuild) before proceeding to *Logic Gate Identification* mode.
+After construction of library DCGs, do a [rebuild](### Rebuild) before proceeding to *Logic Gate Identification* mode.
 
-###Logic Gate Identification mode
+### Logic Gate Identification mode
 
 At *<root>/bin* directory, run LGE with *lib* flat set to **0**.
 
@@ -119,7 +116,7 @@ At *<root>/bin* directory, run LGE with *lib* flat set to **0**.
 ./LGE --lib=0 --sp=<path_to_layout_netlist>.sp
 ```
 
-###Running LGE with different library netlist
+### Running LGE with different library netlist
 
 To run LGE with different library netlist, clear existing library DCGs contents at *<root>* directory,
 
@@ -127,15 +124,13 @@ To run LGE with different library netlist, clear existing library DCGs contents 
 ./clearLibrary.sh
 ```
 
-Once existing contents are cleared, a [rebuild](###Rebuild) is required before running LGE in [Library Build mode](###Library Build Mode).
+Once existing contents are cleared, a [rebuild](### Rebuild) is required before running LGE in [Library Build mode](### Library Build Mode).
 
-##Bug Report
+## Bug Report
 
 Please report bugs to [rachelselina dot r at utexas dot edu](mailto:rachelselina.r@utexas.edu).
 
---------------
-
-##Citation
+## Citation
 
 If you use LGE routine in your work, please cite: 
 
@@ -153,7 +148,7 @@ Bibtex:
 }
 ```
 
-##Copyright
+## Copyright
 
 This software is released under *GNU General Public License*. Please refer to ['LICENSE'](###LICENSE) for details.
 
@@ -164,10 +159,9 @@ This software is released under *GNU General Public License*. Please refer to ['
 - [Boost](https://www.boost.org) is released under *Boost Software License*.
 - [gTest](https://github.com/google/googletest) is released under *BSD 3-clause* license.
 
-##LICENSE
+## LICENSE
 
 GNU General Public License v3.0 or later.
 
 Refer to [COPYING]() for complete information.
 
---------------
