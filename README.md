@@ -2,7 +2,7 @@
 
 The Logic Gate Extraction (LGE) is a custom C++ routine, part of the layout reverse engineering framework *ReGDS*, for digital circuits, that converts layout netlist (SPICE) to HDL netlist (Verilog) in the presence of the logic gate definitions from the standard cell library (SPICE).
 The digital connectivity index (DCI) coding scheme is employed to represent connectivity between transistors and [subgraph isomorphism algorithm](https://ieeexplore.ieee.org/abstract/document/1323804) is employed to identify logic gates in the layout netlist (sea of transistors).
-For more details, please refer to the ['paper'](### Citation).
+For more details, please refer to the ['paper'](#citation).
 
 The SPICE netlist is parsed and the connectivity information is stored as a hypergraph.
 Tie off in the layout netlist is handled by renaming to avoid mismatch during graph-based pattern matching to identify logic gates.
@@ -11,7 +11,7 @@ LGE has two modes of operation:
     - SPICE netlist with logic gate definitions from the technology library is read and library digital connectivity graphs (DCGs) are constructed.
 * Logic Gate Identification:
     - The layout SPICE netlist is read and logic gates are identified based on the existing library DCGs.
-As LGE reads in only one SPICE netlist at a time, a [rebuild](### Rebuild) is required after *Library Build* mode to incorporate the constructed library DCGs in *Logic Gate Identification*.
+As LGE reads in only one SPICE netlist at a time, a [rebuild](#rebuild) is required after *Library Build* mode to incorporate the constructed library DCGs in *Logic Gate Identification*.
 
 ## Acknowlegement
 
@@ -20,8 +20,6 @@ Thanks to *Wuxi Li* and *Keren Zhu* from [UTDA](https://www.cerc.utexas.edu/utda
 ## Developers
 
 - Rachel Selina Rajarathnam, [UTDA](https://www.cerc.utexas.edu/utda), ECE Department, The University of Texas at Austin
-
---------------
 
 ## External Dependencies
 
@@ -39,15 +37,15 @@ The external dependencies are listed below:
 To clone the repository, 
 
 ```
-git clone https://github.com/
+git clone https://github.com/rachelselinar/ReGDS-Logic-Gate-Extraction.git
 ```
 
 ## Build Instructions
 
 ### Parser build
 
-The SPICE netlist parser is found within *<root>/src/parser* directory and needs to built to generate static library **libbookshelfparser.a**.
-Please refer to parser [README]() for information on files to make any changes.
+The SPICE netlist parser is found within *\<root\>/src/parser* directory and needs to built to generate static library **libbookshelfparser.a**.
+Please refer to parser [README](./src/parser/README.md) for information on files to make any changes.
 
 ```
 cd src/parser
@@ -59,7 +57,7 @@ Repeat this step when changes are made to the parser.
 
 ### LGE build
 
-To build LGE, run the following commands at the *<root>* directory. 
+To build LGE, run the following commands at the *\<root\>* directory. 
 ```
 mkdir bin build
 cd build
@@ -77,7 +75,7 @@ make clean
 ### Rebuild
 
 A rebuild is required after running LGE in *Library Build* mode and before *Logic Gate Identification*.
-At the *<root>/build* directory, do
+At the *\<root\>/build* directory, do
 ```
 make clean
 make
@@ -85,7 +83,7 @@ make
 
 ## Running LGE
 
-After successful build, LGE can be run at *<root>/bin* directory.
+After successful build, LGE can be run at *\<root\>/bin* directory.
 
 ```
 usage: ./LGE --sp=string --lib=bool [options] ... 
@@ -100,17 +98,17 @@ options:
 
 ### Library Build mode
 
-To construct library DCGs, run LGE in library mode with *lib* flag set to **1**, at *<root>/bin* directory.
+To construct library DCGs, run LGE in library mode with *lib* flag set to **1**, at *\<root\>/bin* directory.
 
 ```
 ./LGE --lib=1 --sp=<path_to_library_netlist>.sp
 ```
 
-After construction of library DCGs, do a [rebuild](### Rebuild) before proceeding to *Logic Gate Identification* mode.
+After construction of library DCGs, do a [rebuild](#rebuild) before proceeding to *Logic Gate Identification* mode.
 
 ### Logic Gate Identification mode
 
-At *<root>/bin* directory, run LGE with *lib* flat set to **0**.
+At *\<root\>/bin* directory, run LGE with *lib* flat set to **0**.
 
 ```
 ./LGE --lib=0 --sp=<path_to_layout_netlist>.sp
@@ -118,13 +116,13 @@ At *<root>/bin* directory, run LGE with *lib* flat set to **0**.
 
 ### Running LGE with different library netlist
 
-To run LGE with different library netlist, clear existing library DCGs contents at *<root>* directory,
+To run LGE with different library netlist, clear existing library DCGs contents at *\<root\>* directory,
 
 ```
 ./clearLibrary.sh
 ```
 
-Once existing contents are cleared, a [rebuild](### Rebuild) is required before running LGE in [Library Build mode](### Library Build Mode).
+Once existing contents are cleared, a [rebuild](#rebuild) is required before running LGE in [Library Build mode](#library-build-mode).
 
 ## Bug Report
 
@@ -150,7 +148,7 @@ Bibtex:
 
 ## Copyright
 
-This software is released under *GNU General Public License*. Please refer to ['LICENSE'](###LICENSE) for details.
+This software is released under *GNU General Public License*. Please refer to ['LICENSE'](#license) for details.
 
 - [CMake](https://cmake.org) is released under *BSD 3-clause* license.
 - [cmdline](https://github.com/tanakh/cmdline) is released under *BSD 3-clause* license.
@@ -163,5 +161,5 @@ This software is released under *GNU General Public License*. Please refer to ['
 
 GNU General Public License v3.0 or later.
 
-Refer to [COPYING]() for complete information.
+Refer to [LICENSE](./LICENSE) for complete information.
 
