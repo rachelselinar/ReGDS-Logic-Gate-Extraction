@@ -133,7 +133,7 @@ Please report bugs to [rachelselina dot r at utexas dot edu](mailto:rachelselina
 If you use LGE routine in your work, please cite: 
 
 ```
-R. S. Rajarathnam, Y. Lin, Y. Jin and D. Z. Pan, "ReGDS: A Reverse Engineering Framework from GDSII to Gate-level Netlist," IEEE International Symposium on Hardware Oriented Security and Trust (HOST), CA, May 4-7, 2020.
+R. S. Rajarathnam, Y. Lin, Y. Jin and D. Z. Pan, "ReGDS: A Reverse Engineering Framework from GDSII to Gate-level Netlist," IEEE International Symposium on Hardware Oriented Security and Trust (HOST), CA, Dec 6-9, 2020.
 ```
 
 Bibtex:
