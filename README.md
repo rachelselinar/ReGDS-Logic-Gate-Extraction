@@ -45,7 +45,7 @@ git clone https://github.com/rachelselinar/ReGDS-Logic-Gate-Extraction.git
 ### Parser build
 
 The SPICE netlist parser is found within *\<root\>/src/parser* directory and needs to built to generate static library **libbookshelfparser.a**.
-Please refer to parser [README](./src/parser/README.md) for information on files to make any changes.
+Please refer to parser [README](./src/parser/README.md) for information on files to make any changes. It is case-sensitive.
 
 ```
 cd src/parser
@@ -53,7 +53,7 @@ make clean
 make
 ```
 
-Repeat this step when changes are made to the parser.
+Repeat this step when changes are made to the parser. By default the parser supports the format in [example](./examples/lib.sp).
 
 ### LGE build
 
