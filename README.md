@@ -98,21 +98,24 @@ options:
 
 ### Library Build mode
 
-To construct library DCGs, run LGE in library mode with *lib* flag set to **1**, at *\<root\>/bin* directory.
+To construct library DCGs, run LGE in library mode with *lib* flag set to **1**, at *\<root\>/bin* directory. For example:
 
 ```
-./LGE --lib=1 --sp=<path_to_library_netlist>.sp
+./LGE --lib=1 --sp=../examples/lib.sp
 ```
 
 After construction of library DCGs, do a [rebuild](#rebuild) before proceeding to *Logic Gate Identification* mode.
 
 ### Logic Gate Identification mode
 
-At *\<root\>/bin* directory, run LGE with *lib* flat set to **0**.
+At *\<root\>/bin* directory, run LGE with *lib* flat set to **0**. For example:
 
 ```
-./LGE --lib=0 --sp=<path_to_layout_netlist>.sp
+./LGE --lib=0 --sp=../examples/c17_flat.sp
 ```
+
+c17 is a combinational circuit that is part of the [ISCAS'85 benchmarks](http://www.pld.ttu.ee/~maksim/benchmarks/iscas85/).
+LGE can be used on flat as well as hierarchical spice netlists. The large runtime of the graph isomorphism algorithm restricts the usage to reasonably sized flattened spice netlists. For very large designs, please use hierarchical input spice netlist.
 
 ### Running LGE with different library netlist
 
@@ -130,7 +133,7 @@ Please report bugs to [rachelselina dot r at utexas dot edu](mailto:rachelselina
 
 ## Citation
 
-If you use LGE routine in your work, please cite: 
+If you use LGE routine in your work, please [cite](https://ieeexplore.ieee.org/document/9300272): 
 
 ```
 R. S. Rajarathnam, Y. Lin, Y. Jin and D. Z. Pan, "ReGDS: A Reverse Engineering Framework from GDSII to Gate-level Netlist," IEEE International Symposium on Hardware Oriented Security and Trust (HOST), CA, Dec 6-9, 2020.
