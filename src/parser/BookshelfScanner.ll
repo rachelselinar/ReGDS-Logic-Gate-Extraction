@@ -1,4 +1,4 @@
-//Initial version obtained from Wuxi Li (UTDA) and modified by Rachel Selina Rajarathnam (UTDA)
+/*Initial version obtained from Wuxi Li (UTDA) and modified by Rachel Selina Rajarathnam (UTDA)
 /* $Id: scanner.ll 44 2008-10-23 09:03:19Z tb $ -*- mode: c++ -*- */
 /** \file scanner.ll Define the example Flex lexical scanner */
 
@@ -59,8 +59,8 @@ typedef BookshelfParser::Parser::token_type token_type;
 
  /*** BEGIN EXAMPLE - Change the example lexer rules below ***/
 
-(\.SUBCKT)                     { return token::KWD_SUBCKT; }
-(\.ENDS)                       { return token::KWD_ENDS; }
+(?i:\.SUBCKT)                       { return token::KWD_SUBCKT; }
+(?i:\.ENDS)                         { return token::KWD_ENDS; }
 
 ^M[M]?[A-Za-z0-9\_\-]*[0-9]+                              { yylval->strVal = new std::string(yytext, yyleng); return token::MOS; }
 ^[X]?R[0-9]+                                              { yylval->strVal = new std::string(yytext, yyleng); return token::RES; }
