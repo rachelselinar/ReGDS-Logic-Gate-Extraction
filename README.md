@@ -129,7 +129,7 @@ Once existing contents are cleared, a [rebuild](#rebuild) is required before run
 
 ## Bug Report
 
-Please report bugs to [rachelselina dot r at utexas dot edu](mailto:rachelselina.r@utexas.edu).
+To report a bug, please file an [issue](https://github.com/rachelselinar/ReGDS-Logic-Gate-Extraction/issues).
 
 ## Citation
 
